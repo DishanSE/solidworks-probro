@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, MessageCircle, CheckCircle, Download, Eye, Wrench, Lightbulb, Clock, Award, ArrowRight, Star, Zap, Target, Users } from 'lucide-react';
-import Assembly from "./assets/1.jpg"
-import Design from "./assets/2.jpg"
-import Model from "./assets/3.jpg"
-import Drawing from "./assets/4.jpg"
+import { Mail, Phone, MessageCircle, CheckCircle, Download, Eye, Wrench, Lightbulb, Clock, Award, ArrowRight, Star, Zap, Target, Users, Facebook, Linkedin, Instagram, Github, Image } from 'lucide-react';
+import Assembly from "./assets/2.jpg"
+import Design from "./assets/5.jpg"
+import Analysis from "./assets/analysis.png"
+import Drawing from "./assets/drawing.jpeg"
+import Logo from "./assets/Picture1.png"
+
 
 const SolidWorksWebsite = () => {
   const [activeProject, setActiveProject] = useState(0);
   const [isVisible, setIsVisible] = useState({});
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    project: '',
-    message: ''
-  });
 
   // Floating animation for hero elements
   useEffect(() => {
@@ -32,18 +28,18 @@ const SolidWorksWebsite = () => {
       image: Assembly,
     },
     {
-      title: "Product Design",
-      description: "Consumer product design from concept to manufacturing-ready files.",
-      category: "Product Design",
+      title: "3D CAD",
+      description: "Consumer product design from concept to design.",
+      category: "Modeling",
       color: "from-green-500 to-teal-600",
       image: Design
     },
     {
-      title: "3D Modeling",
-      description: "Detailed 3D models with parametric design and engineering analysis.",
-      category: "3D Modeling",
+      title: "Analysis",
+      description: "SolidWorks Force and Flow Analysis checks how forces and fluids act on a design to improve strength and performance.",
+      category: "Analysis",
       color: "from-orange-500 to-red-600",
-      image: Model
+      image: Analysis
     },
     {
       title: "Technical Drawings",
@@ -57,15 +53,15 @@ const SolidWorksWebsite = () => {
   const services = [
     {
       icon: <Wrench className="w-8 h-8" />,
-      title: "3D Modeling & Design",
+      title: "3D CAD",
       description: "Create detailed 3D models from sketches, ideas, or existing products with precision and accuracy.",
       color: "bg-gradient-to-br from-blue-50 to-indigo-100",
       iconColor: "text-blue-600"
     },
     {
       icon: <Lightbulb className="w-8 h-8" />,
-      title: "Product Development",
-      description: "Complete product development from concept to manufacturing-ready designs.",
+      title: "Ananlysis",
+      description: "SolidWorks Force and Flow Analysis checks how forces and fluids act on a design to improve strength and performance.",
       color: "bg-gradient-to-br from-yellow-50 to-orange-100",
       iconColor: "text-orange-600"
     },
@@ -124,27 +120,24 @@ const SolidWorksWebsite = () => {
   ];
 
   const stats = [
-    { number: "5+", label: "Projects Completed", icon: <Target className="w-8 h-8" /> },
+    { number: "26+", label: "Projects Completed", icon: <Target className="w-8 h-8" /> },
     { number: "100%", label: "Client Satisfaction", icon: <Star className="w-8 h-8" /> },
     { number: "2h", label: "Response Time", icon: <Zap className="w-8 h-8" /> },
     { number: "1+", label: "Years Experience", icon: <Award className="w-8 h-8" /> }
   ];
 
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const socials = [
+    { icon: <Facebook />, href: "https://www.facebook.com/ragu.thadshanan/" },
+    { icon: <Linkedin />, href: "https://www.linkedin.com/in/thadshanan-munusamy-303426314/" },
+    { icon: <Instagram />, href: "https://instagram.com/yourprofile" },
+    { icon: <Github />, href: "https://www.instagram.com/_.sha_nan._/" },
+  ];
 
-  const handleSubmit = () => {
-    if (formData.name && formData.email && formData.project && formData.message) {
-      alert('Thank you for your message! I will get back to you soon.');
-      setFormData({ name: '', email: '', project: '', message: '' });
-    } else {
-      alert('Please fill in all fields.');
-    }
-  };
+  const contacts = [
+    { icon: <Mail className="w-6 h-6" />, title: "Email", info: "dharsh6011@outlook.com", color: "text-blue-600" },
+    { icon: <Phone className="w-6 h-6" />, title: "Phone", info: "+94 702628764", color: "text-green-600" },
+    { icon: <MessageCircle className="w-6 h-6" />, title: "Response Time", info: "Within 2 hours", color: "text-purple-600" }
+  ];
 
   // Floating shapes component
   const FloatingShapes = () => (
@@ -162,11 +155,21 @@ const SolidWorksWebsite = () => {
       <nav className="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-pulse">
+
+            {/* Logo + Brand Name */}
+            <div className="flex items-center space-x-2">
+              {/* If you have an SVG file in /public or /assets */}
+              <img
+                src={Logo}
+                alt="SolidWorks Pro Bro Logo"
+                className="h-8 w-auto"
+              />
+              {/* <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 SolidWorks Pro Bro
-              </div>
+              </span> */}
             </div>
+
+            {/* Navigation Links */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 {['Home', 'Services', 'Portfolio', 'Process', 'Contact'].map((item, index) => (
@@ -182,9 +185,11 @@ const SolidWorksWebsite = () => {
                 ))}
               </div>
             </div>
+
           </div>
         </div>
       </nav>
+
 
       {/* Hero Section */}
       <section id="home" className="relative bg-gradient-to-br from-blue-600 via-purple-700 to-indigo-800 text-white py-20 overflow-hidden">
@@ -271,7 +276,7 @@ const SolidWorksWebsite = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-center group cursor-pointer">
                   <Award className="w-6 h-6 text-blue-600 mr-3 group-hover:scale-110 transition-transform" />
-                  <span className="text-gray-700 group-hover:text-blue-600 transition-colors">Certified Professional</span>
+                  <span className="text-gray-700 group-hover:text-blue-600 transition-colors">BEng (Hons) Machanical Engineering</span>
                 </div>
                 <div className="flex items-center group cursor-pointer">
                   <Clock className="w-6 h-6 text-blue-600 mr-3 group-hover:scale-110 transition-transform" />
@@ -284,7 +289,7 @@ const SolidWorksWebsite = () => {
                 <div className="text-center relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl animate-pulse"></div>
                   <div className="relative z-10">
-                    <div className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2 animate-bounce">5+</div>
+                    <div className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2 animate-bounce">26+</div>
                     <div className="text-gray-600 mb-6">Projects Completed</div>
                     <div className="text-5xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-2 animate-bounce" style={{ animationDelay: '0.5s' }}>100%</div>
                     <div className="text-gray-600">Client Satisfaction</div>
@@ -435,99 +440,42 @@ const SolidWorksWebsite = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Get In
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Touch</span>
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Touch</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Ready to start your project? Contact me to discuss your requirements
+              Ready to start your project? Submit your design sketch and details via Google Form.
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="space-y-6">
-              {[
-                { icon: <Mail className="w-6 h-6" />, title: "Email", info: "your.email@example.com", color: "text-blue-600" },
-                { icon: <Phone className="w-6 h-6" />, title: "Phone", info: "+1 (555) 123-4567", color: "text-green-600" },
-                { icon: <MessageCircle className="w-6 h-6" />, title: "Response Time", info: "Within 2 hours", color: "text-purple-600" }
-              ].map((contact, index) => (
-                <div
-                  key={index}
-                  className="flex items-center group cursor-pointer transform hover:scale-105 transition-all duration-300 p-4 rounded-lg hover:bg-white hover:shadow-lg"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className={`${contact.color} mr-4 group-hover:scale-110 transition-transform duration-300 p-3 bg-gray-50 rounded-full group-hover:shadow-md`}>
-                    {contact.icon}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">{contact.title}</div>
-                    <div className="text-gray-600 group-hover:text-gray-700 transition-colors">{contact.info}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100">
-              <div className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300 hover:border-blue-300"
-                  />
+
+          {/* Contact Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {contacts.map((contact, index) => (
+              <div
+                key={index}
+                className="flex items-center group cursor-pointer transform hover:scale-105 transition-all duration-300 p-6 rounded-lg hover:bg-white hover:shadow-lg"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className={`${contact.color} mr-4 group-hover:scale-110 transition-transform duration-300 p-3 bg-gray-50 rounded-full group-hover:shadow-md`}>
+                  {contact.icon}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300 hover:border-blue-300"
-                  />
+                  <div className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">{contact.title}</div>
+                  <div className="text-gray-600 group-hover:text-gray-700 transition-colors">{contact.info}</div>
                 </div>
-                <div>
-                  <label htmlFor="project" className="block text-sm font-medium text-gray-700 mb-2">Project Type</label>
-                  <select
-                    id="project"
-                    name="project"
-                    value={formData.project}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300 hover:border-blue-300"
-                  >
-                    <option value="">Select Project Type</option>
-                    <option value="3d-modeling">3D Modeling</option>
-                    <option value="assembly">Assembly Design</option>
-                    <option value="technical-drawings">Technical Drawings</option>
-                    <option value="product-design">Product Design</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300 hover:border-blue-300 resize-none"
-                  ></textarea>
-                </div>
-                <button
-                  onClick={handleSubmit}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl group flex items-center justify-center"
-                >
-                  Send Message
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
               </div>
-            </div>
+            ))}
+          </div>
+
+          <div className="flex justify-center">
+            <a
+              href="YOUR_GOOGLE_FORM_LINK_HERE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-8 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center"
+            >
+              Submit Your Design
+              <ArrowRight className="ml-3 w-5 h-5 animate-bounce" />
+            </a>
           </div>
         </div>
       </section>
@@ -550,14 +498,19 @@ const SolidWorksWebsite = () => {
 
             {/* Social links placeholder */}
             <div className="flex justify-center space-x-6 mb-8">
-              {[1, 2, 3, 4].map((item, index) => (
-                <div
-                  key={item}
-                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 cursor-pointer transform hover:scale-110"
+              {socials.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center 
+                 hover:bg-white/20 transition-all duration-300 cursor-pointer 
+                 transform hover:scale-110"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="w-4 h-4 bg-white/50 rounded-full"></div>
-                </div>
+                  {social.icon}
+                </a>
               ))}
             </div>
 
