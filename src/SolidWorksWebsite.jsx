@@ -129,8 +129,8 @@ const SolidWorksWebsite = () => {
   const socials = [
     { icon: <Facebook />, href: "https://www.facebook.com/ragu.thadshanan/" },
     { icon: <Linkedin />, href: "https://www.linkedin.com/in/thadshanan-munusamy-303426314/" },
-    { icon: <Instagram />, href: "https://instagram.com/yourprofile" },
-    { icon: <Github />, href: "https://www.instagram.com/_.sha_nan._/" },
+    { icon: <Instagram />, href: "ttps://www.instagram.com/_.sha_nan._/" },
+    { icon: <Github />, href: "#" },
   ];
 
   const contacts = [
@@ -468,7 +468,7 @@ const SolidWorksWebsite = () => {
 
           <div className="flex justify-center">
             <a
-              href="YOUR_GOOGLE_FORM_LINK_HERE"
+              href="https://forms.gle/fXkcnRcmGHkuqepT7"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-8 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center"
@@ -516,7 +516,7 @@ const SolidWorksWebsite = () => {
 
             <div className="border-t border-white/20 pt-8">
               <p className="text-gray-400 text-sm">
-                © 2025 SolidWorks Pro Bro. All rights reserved. | M.Thadshanan - BSc (Hons) Machanical Engineering.
+                © 2025 SolidWorks Pro Bro. All rights reserved. | M.Thadshanan - BEng (Hons) Machanical Engineering.
               </p>
             </div>
           </div>
